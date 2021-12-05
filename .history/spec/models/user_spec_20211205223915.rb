@@ -15,6 +15,11 @@ RSpec.describe User, type: :model do
       expect(@user).to be_invalid
     end
 
+    it 'passwordが空だと無効になるか' do
+      @user.name = "    "
+      expect(@user).to be_invalid
+    end
+
     it 'emailが空だと無効になるか' do
       @user.email = "    "
       expect(@user).to be_invalid
