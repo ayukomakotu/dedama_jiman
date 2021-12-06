@@ -5,8 +5,8 @@ FactoryBot.define do
   end
 
   factory :archer, class: User do
-    name  {"Sterling Archer"}
-    email {"duchess@example.gov"}
+    name  {"Michael Example"}
+    email {"michael@example.com"}
   end
 end
 
