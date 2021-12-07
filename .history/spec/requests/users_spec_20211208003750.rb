@@ -81,10 +81,5 @@ RSpec.describe "Users", type: :request do
         delete user_path(@user)
       end.to change(User, :count).by(-1)
     end
-
-    it "正しいリダイレクト" do
-      delete user_path(@user)
-      expect(response). to redirect_to(users_url)
-    end
   end
 end

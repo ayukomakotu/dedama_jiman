@@ -52,39 +52,4 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    it "リクエストが成功すること" do
-      patch user_path(@user), params: {user: FactoryBot.attributes_for(:archer)}
-      expect(response).to have_http_status(302)
-    end
-
-    it "ユーザ名が更新されること" do
-      expect do
-        patch user_path(@user), params: {user: FactoryBot.attributes_for(:archer)}
-      end.to change { User.find(@user.id).name}.from("Michael Example").to("Sterling Archer")
-    end
-
-    it "リダイレクト" do
-      patch user_path(@user), params: {user: FactoryBot.attributes_for(:archer)}
-      expect(response).to redirect_to User.last
-    end
-  end
-
-  describe "DELETE /destroy" do
-    it "responseが成功する" do
-      delete user_path(@user)
-      expect(response).to have_http_status(302)
-    end
-
-    it "ユーザ削除に成功" do
-      expect do
-        delete user_path(@user)
-      end.to change(User, :count).by(-1)
-    end
-
-    it "正しいリダイレクト" do
-      delete user_path(@user)
-      expect(response). to redirect_to(users_url)
-    end
-  end
 end
