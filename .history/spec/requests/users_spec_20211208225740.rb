@@ -38,14 +38,12 @@ RSpec.describe "Users", type: :request do
     context "パラメータが有効な場合" do
 
       it "リクエストが成功すること" do
-        post users_path, params: {
-          user: FactoryBot.attributes_for(:archer)}
+        post users_path, params: {user: FactoryBot.attributes_for(:archer)}
         expect(response).to have_http_status(302)
       end
 
       it "showアクションにリダイレクト" do
-        post users_path, params: {
-          user: FactoryBot.attributes_for(:archer)}
+        post users_path, params: {user: FactoryBot.attributes_for(:archer)}
         expect(response).to redirect_to User.last
       end
 
