@@ -4,12 +4,12 @@ RSpec.describe "StaticPages", type: :request do
   describe "GET /home" do
     it "レスポンスに成功" do
       get root_path
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(200)
     end
 
     it "正しいタイトルが表示されている" do
       get root_path
-      assert_select "title", "Home | dedama_jiman"
+      expect(title).to be("Home")
     end
     
   end

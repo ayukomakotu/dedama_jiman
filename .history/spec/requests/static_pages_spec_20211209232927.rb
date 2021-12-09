@@ -9,7 +9,7 @@ RSpec.describe "StaticPages", type: :request do
 
     it "正しいタイトルが表示されている" do
       get root_path
-      assert_select "title", "Home | dedama_jiman"
+      expect(title).to be("Home")
     end
     
   end
