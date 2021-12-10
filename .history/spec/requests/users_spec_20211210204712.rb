@@ -40,7 +40,7 @@ RSpec.describe "Users", type: :request do
       it "リクエストが成功すること" do
         post users_path, params: {
           user: FactoryBot.attributes_for(:archer)}
-        expect(response).to have_http_status(:found)
+        expect(response).to have_http_status(302)
       end
 
       it "showアクションにリダイレクト" do
