@@ -8,28 +8,28 @@ RSpec.describe "Users", type: :request do
   describe "GET /index" do
     it "responseが成功すること" do
       get users_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /show" do
     it "responseが成功すること" do
       get user_path(@user)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /new" do
     it "responseが成功すること" do
       get new_user_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /edit" do
     it "responseが成功すること" do
       get edit_user_path(@user)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe "Users", type: :request do
       it "リクエストが成功すること" do
         post users_path, params: {
           user: FactoryBot.attributes_for(:archer)}
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:found)
       end
 
       it "showアクションにリダイレクト" do
