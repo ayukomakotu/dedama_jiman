@@ -63,4 +63,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
   #factory_bot記法の省略
+  require 'capybara/rspec'
+  #統合テスト用にcapybaraを使うための設定
 end
