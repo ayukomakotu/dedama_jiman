@@ -11,6 +11,5 @@ RSpec.describe "SiteLayouts", type: :system do
     it "helpへのリンクが機能しているか" do
       get root_path
       expect(response.body).to have_link 'Help', href: help_path
-    end
   end
 end

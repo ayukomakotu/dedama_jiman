@@ -23,5 +23,4 @@ RSpec.describe "StaticPages", type: :request do
       get help_path
       assert_select "title", "Help | dedama_jiman"
     end
-  end
 end
