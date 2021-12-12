@@ -15,7 +15,7 @@ RSpec.describe "SiteLayouts", type: :system do
 
     it "signuoリンクが機能しているか" do
       get root_path
-      expect(response.body).to have_link 'Sign up now!', href: signup_path
+      expect(response.body).to have_link 'Signup', href: signup_path
     end
   end
 end

@@ -26,7 +26,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "GET /signup" do
+  desctibe "GET /signup" do
     it "responseが成功すること" do
       get signup_path
       expect(response).to have_http_status(:success)

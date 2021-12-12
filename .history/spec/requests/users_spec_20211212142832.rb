@@ -19,16 +19,9 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "GET /new" do
-    it "responseが成功すること" do
-      get new_user_path
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET /signup" do
     it "responseが成功すること" do
-      get signup_path
+      get new_user_path
       expect(response).to have_http_status(:success)
     end
   end
