@@ -57,7 +57,6 @@ RSpec.describe User, type: :model do
       @user.save
       expect(duplicate_user).to be_invalid
     end
-  end
 
   context "validates :password" do
     it "passwordが空白の場合無効になるか" do

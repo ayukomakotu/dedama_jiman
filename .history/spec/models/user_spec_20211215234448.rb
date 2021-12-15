@@ -58,16 +58,4 @@ RSpec.describe User, type: :model do
       expect(duplicate_user).to be_invalid
     end
   end
-
-  context "validates :password" do
-    it "passwordが空白の場合無効になるか" do
-      @user.password = @user.password_confirmation = " " * 6
-      expect(@user).to be_invalid
-    end
-
-    it "passwordが短すぎる場合無効になるか" do
-      @user.password = @user.password_confirmation = "a" * 5
-      expect(@user).to be_invalid
-    end
-  end
 end

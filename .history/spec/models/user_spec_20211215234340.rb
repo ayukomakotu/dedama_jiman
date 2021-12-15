@@ -51,23 +51,11 @@ RSpec.describe User, type: :model do
 
     it "emailの一意性が担保されているか" do
       duplicate_user = User.new(name: "test email unique", 
-                              email: "michael@example.com",
+                              email: "user@example.com",
                               password: "foobar", 
                               password_confirmation: "foobar")
       @user.save
       expect(duplicate_user).to be_invalid
-    end
-  end
-
-  context "validates :password" do
-    it "passwordが空白の場合無効になるか" do
-      @user.password = @user.password_confirmation = " " * 6
-      expect(@user).to be_invalid
-    end
-
-    it "passwordが短すぎる場合無効になるか" do
-      @user.password = @user.password_confirmation = "a" * 5
-      expect(@user).to be_invalid
     end
   end
 end

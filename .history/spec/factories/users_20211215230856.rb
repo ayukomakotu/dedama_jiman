@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :michael, class: User do
     name                     {"Michael Example"}
     email                    {"michael@example.com"}
-    password                 {"password"}
-    password_confirmation    {"password"}
+    encrypted_password       {User.digest('password')}
   end
 end
