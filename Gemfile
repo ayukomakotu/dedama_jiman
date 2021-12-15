@@ -18,6 +18,7 @@ gem 'jbuilder'
 gem 'bootsnap', require: false
 gem 'rexml'
 gem 'rss'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3'
