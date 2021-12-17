@@ -7,10 +7,9 @@ RSpec.describe "IndexUsers", type: :system do
     end
 
     it "１ページの全てのユーザーが表示されているか" do
-      get users_path
-      first_page_of_users = User.all.paginate(page: 1)
+      first_page_of_users.each = User.where.paginate(page: 1)
       first_page_of_users.each do |user|
-        expect(response.body).to_have_link user.name, href: user_path(user)
+        expect(response.body).to include "user.name"
       end
     end
   end
