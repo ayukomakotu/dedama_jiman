@@ -19,6 +19,15 @@ RSpec.describe "SiteLayouts", type: :system do
           href: new_user_session_path
     end
 
+    it "ユーザ一覧へのリンク" do
+      visit root_path
+      expect(page).to have_link 'Users',
+          href: users_path
+    end
+  end
+
+  context "home画面のリンク" do
+
     it "sign_upへのリンクがあるか" do
       visit root_path
       expect(page).to have_link 'Sign up now!', 
