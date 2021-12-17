@@ -23,6 +23,5 @@ RSpec.describe "SiteLayouts", type: :system do
       visit root_path
       expect(page).to have_link 'Sign up now!', 
           href: new_user_registration_path
-    end
   end
 end
