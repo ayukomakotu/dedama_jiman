@@ -3,19 +3,14 @@ require 'rails_helper'
 RSpec.describe "SiteLayouts", type: :system do
 
   context "headerのリンク" do
-    it "homeへのリンクがあるか" do
+    it "homeへのリンクが機能しているか" do
       visit root_path
       expect(page).to have_link 'Home', href: root_path
     end
 
-    it "helpへのリンクがあるか" do
+    it "helpへのリンクが機能しているか" do
       visit root_path
       expect(page).to have_link 'Help', href: help_path
-    end
-
-    it "sign_inへのリンクがあるか" do
-      visit root_path
-      expect(page).to have_link 'Sign in', href: new_user_session_path
     end
   end
 end
