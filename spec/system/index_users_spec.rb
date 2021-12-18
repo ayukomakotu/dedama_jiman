@@ -13,5 +13,8 @@ RSpec.describe "IndexUsers", type: :system do
         expect(response.body).to_have_link user.name, href: user_path(user)
       end
     end
+
+    pending "ページネーションでページ移動ができるか" do
+    end
   end
 end
