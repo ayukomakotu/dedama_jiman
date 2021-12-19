@@ -1,20 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe "IndexUsers", type: :system do
+
+  before do
+    100.times do |n|
+      FactoryBot.create(:sample)
+    end
+  end
+
   context "GET /users/index" do
-    it "ページネーションが表示されているか" do
-
+    let(:archer){FactoryBot.create(:archer)}
+    pending "ページネーションが機能しているか" do
+      
+      visit users_path
+      find_link("/users/index?page=4").click
+      expect(page).to have_content User.last.name
     end
 
-    it "１ページの全てのユーザーが表示されているか" do
-      get users_path
-      first_page_of_users = User.all.paginate(page: 1)
-      first_page_of_users.each do |user|
-        expect(response.body).to_have_link user.name, href: user_path(user)
-      end
-    end
-
-    pending "ページネーションでページ移動ができるか" do
-    end
+   
   end
 end
