@@ -38,8 +38,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { protocol: 'https', host: 'http://127.0.0.1:3000' }
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
