@@ -10,10 +10,11 @@ RSpec.describe "IndexUsers", type: :system do
 
   context "GET /users/index" do
     let(:archer){FactoryBot.create(:archer)}
-    pending "ページネーションが機能しているか" do
+    it "ページネーションが機能しているか" do
       
       visit users_path
-      find_link("/users/index?page=4").click
+      browser.maximize_window()
+      first('li.last').click
       expect(page).to have_content User.last.name
     end
 
