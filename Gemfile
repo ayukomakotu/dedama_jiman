@@ -23,6 +23,7 @@ gem 'bootsnap', require: false
 gem 'rexml'
 gem 'rss'
 gem 'devise'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'sqlite3'

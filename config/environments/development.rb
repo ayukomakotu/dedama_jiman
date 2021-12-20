@@ -39,13 +39,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { protocol: 'https', host: 'http://127.0.0.1:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    enable_starttls_auto => true,
-    address => "smtp.gmail.com",
-    port => 587,
-    domain => 'smtp.gmail.com',
-    user_name => "xxx@gmail.com", #gmailアドレス
-    password => "xxxx", #gmailパスワード
-    authentication => 'login'
+    enable_starttls_auto: true,
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: 'smtp.gmail.com',
+    user_name: ENV['WELCOME_MAILER_ADDRESS'], #gmailアドレス
+    password: ENV['WELCOME_MAILER_PASSWORD'], #gmailパスワード
+    authentication: 'login'
   }
 
   # Print deprecation notices to the Rails logger.
