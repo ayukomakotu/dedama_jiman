@@ -2,7 +2,7 @@
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password: "password",
-             password_confirmation: "password",
+             password_confirmation: "password"
              confirmed_at: 2.hour.ago,
              confirmation_sent_at: 1.hour.ago)
 

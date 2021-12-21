@@ -2,9 +2,8 @@
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password: "password",
-             password_confirmation: "password",
-             confirmed_at: 2.hour.ago,
-             confirmation_sent_at: 1.hour.ago)
+             confirmed_at: 1.hour.ago,
+             confirmation_sent_at: Time.zone.now)
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
@@ -14,7 +13,5 @@ User.create!(name:  "Example User",
     User.create!(name:  name,
                  email: email,
                  password:              password,
-                 password_confirmation: password,
-                 confirmed_at: 1.hour.ago,
-                 confirmation_sent_at: Time.zone.now)
+                 password_confirmation: password)
   end
