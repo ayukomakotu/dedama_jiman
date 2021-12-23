@@ -24,8 +24,8 @@ RSpec.describe "SiteLayouts", type: :system do
     end
 
     it "ユーザ一覧へのリンク" do
-      sign_in @user
-      visit root_path
+      sign_in(@user)
+      visit　root_path
       expect(page).to have_link 'Users',
           href: users_path
     end

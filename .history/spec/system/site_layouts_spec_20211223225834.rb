@@ -5,7 +5,6 @@ RSpec.describe "SiteLayouts", type: :system do
   before do
     @user = FactoryBot.create(:michael)
   end
-
   context "headerのリンク" do
     it "homeへのリンクがあるか" do
       visit root_path
@@ -24,8 +23,8 @@ RSpec.describe "SiteLayouts", type: :system do
     end
 
     it "ユーザ一覧へのリンク" do
-      sign_in @user
       visit root_path
+      sign_in()
       expect(page).to have_link 'Users',
           href: users_path
     end

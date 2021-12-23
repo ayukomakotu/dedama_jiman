@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "SiteLayouts", type: :system do
 
   before do
-    @user = FactoryBot.create(:michael)
+    @user = FactoryBot.create(:sample)
   end
 
   context "headerのリンク" do

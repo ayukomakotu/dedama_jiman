@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :example, class: User do
+  factory :sample, class: User do
     name                     {"Example User"}
     email                    {"example@railstutorial.org"}
     password                 {"password"}
@@ -11,8 +11,6 @@ FactoryBot.define do
     email                    {"michael@example.com"}
     password                 {"password"}
     password_confirmation    {"password"}
-    confirmed_at             {2.hour.ago}
-    confirmation_sent_at     {1.hour.ago}
   end
 
   factory :archer, class: User do

@@ -65,5 +65,5 @@ RSpec.configure do |config|
   #factory_bot記法の省略
   require 'capybara/rspec'
   #統合テスト用にcapybaraを使うための設定
-  config.include Devise::Test::IntegrationHelpers
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
