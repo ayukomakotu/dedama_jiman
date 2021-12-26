@@ -79,7 +79,17 @@ RSpec.describe User, type: :model do
     it "userが削除されるとpostも削除される" do
       expect do
         michael.destroy
-      end.to change(Post, :count).by(-1)
+      end.to change(Post, :count).by(1)
     end
-  end
+
 end
+it "ユーザーが増えること" do
+      visit new_user_registration_path
+      expect do
+        fill_in 'user[name]',            with: 'test_name'
+        fill_in 'Email',                 with: 'test@example.com'
+        fill_in 'Password',              with: 'password'
+        fill_in 'Password confirmation', with: 'password'
+        click_on 'Sign up'
+      end.to change(User, :count).by(1)
+    end

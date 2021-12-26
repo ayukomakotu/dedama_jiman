@@ -79,7 +79,7 @@ RSpec.describe User, type: :model do
     it "userが削除されるとpostも削除される" do
       expect do
         michael.destroy
-      end.to change(Post, :count).by(-1)
+      end.to change(Post, :count).by(1)
     end
   end
 end
