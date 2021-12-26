@@ -70,4 +70,16 @@ RSpec.describe User, type: :model do
       expect(@user).to be_invalid
     end
   end
+
+  context "has_many :posts　関連" do
+
+    let!(:michael) { FactoryBot.create(:michael)}
+    let!(:test_post) { FactoryBot.create(:test_post, user: michael) }
+
+    it "userが削除されるとpostも削除される" do
+      expect do
+        michael.destroy
+      end.to change(Post, :count).by(-1)
+    end
+  end
 end
