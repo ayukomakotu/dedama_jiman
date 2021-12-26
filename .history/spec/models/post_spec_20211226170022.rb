@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+  before do
+    @user = FactoryBot.create(:michael)
+    @post = @user.posts.build(content: "Lorem ipsum")
+    @recent = FactoryBot.create(:most_recent)
+  end
 
   let!(:michael) { create(:michael) }
-  let!(:test_post) { create(:test_post, user: michael) }
-  let!(:most_recent) { create(:most_recent, user: michael) }
-  
-  before do  
-    @post = michael.posts.build(content: "Lorem ipsum")
-  end
 
   it "postが有効になるか" do
     expect(@post).to be_valid
@@ -25,6 +24,4 @@ RSpec.describe Post, type: :model do
   end
 
   it "投稿は作成時間の逆順で表示されるか" do
-    expect(Post.first).to eq most_recent
-  end
 end

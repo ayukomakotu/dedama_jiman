@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
 
   let!(:michael) { create(:michael) }
-  let!(:test_post) { create(:test_post, user: michael) }
   let!(:most_recent) { create(:most_recent, user: michael) }
   
   before do  
