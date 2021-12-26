@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  before do
-    @user = FactoryBot.create(:michael)
-    @post = Post.new(content: "Lorem ipsum", user_id: @user.id)
+
+  let!(:michael) { create(:michael) }
+  let!(:test_post) { create(:test_post, user: michael) }
+  let!(:most_recent) { create(:most_recent, user: michael) }
+  
+  before do  
+    @post = michael.posts.build(content: "Lorem ipsum")
   end
 
   it "postが有効になるか" do
@@ -18,5 +22,9 @@ RSpec.describe Post, type: :model do
   it "contentが140字以内" do
     @post.content = "a"*141
     expect(@post).to be_invalid
+  end
+
+  it "投稿は作成時間の逆順で表示されるか" do
+    expect(Post.first).to eq most_recent
   end
 end
