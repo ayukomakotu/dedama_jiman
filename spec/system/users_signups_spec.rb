@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "UsersSignups", type: :system do
-  pending("のちに実装")
+  pending("のちに実装") do
     context "パラメータが無効な場合" do
     end
   end
@@ -17,4 +17,5 @@ RSpec.describe "UsersSignups", type: :system do
         click_on 'Sign up'
       end.to change(User, :count).by(1)
     end
+  end
 end

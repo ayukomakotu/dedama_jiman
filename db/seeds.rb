@@ -17,4 +17,11 @@ User.create!(name:  "Example User",
                  password_confirmation: password,
                  confirmed_at: 1.hour.ago,
                  confirmation_sent_at: Time.zone.now)
-  end
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(word_count: 5)
+  users.each { |user| user.posts.create!(content: content) }
+end
+
