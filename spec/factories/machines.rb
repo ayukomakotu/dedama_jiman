@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :machine do
-    type { "MyText" }
+  factory :test_machine, class: Machine do
+    type { "test_machine" }
   end
 end
