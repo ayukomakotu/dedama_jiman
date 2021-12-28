@@ -15,7 +15,7 @@
         <% @posts.each do |post| %>
           <li id="post-<%= post.id %>">
             <span class="user"><%= link_to post.user.name, post.user %></span>
-            <span class="machine"><%= post.machine.name %></span>
+            <span class="machine"><%= post.machine.kind %></span>
             <span class="content"><%= post.content %></span>
             <span class="timestamp">
                 Posted <%= time_ago_in_words(post.created_at) %> ago.
