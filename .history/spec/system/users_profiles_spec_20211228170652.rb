@@ -36,8 +36,8 @@ RSpec.describe "UsersProfiles", type: :system do
     end
 
     it "post内にmachine名の記載があるか" do
-      get user_path(michael)
-      expect(response.body).to include test_post.machine.kind
+      visit user_path(michael)
+      expect(page).to include test_post.machine.kind
     end
   end
 end
