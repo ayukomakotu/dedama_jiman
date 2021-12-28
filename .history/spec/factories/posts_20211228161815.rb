@@ -14,14 +14,12 @@ FactoryBot.define do
   end
 
   factory :oldest, class: Post do
-    association :machine, factory: :test_machine
     content    {"oldest"}
     created_at {2.hours.ago}
   end
 
   factory :sample_post, class: Post do
     association :user, factory: :michael
-    association :machine, factory: :test_machine
     sequence(:content)      { |n| "sample_post#{n}"}
     sequence(:created_at)   { 1.hour.ago }
   end
