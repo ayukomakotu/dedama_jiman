@@ -19,9 +19,13 @@ User.create!(name:  "Example User",
                  confirmation_sent_at: Time.zone.now)
 end
 
+#機種のサンプルデータ
+Machine.create!(kind: "Exaple Machine")
+
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.posts.create!(content: content) }
+  users.each { |user| user.posts.create!(content: content,
+                                         machine: Machine.first) }
 end
 
