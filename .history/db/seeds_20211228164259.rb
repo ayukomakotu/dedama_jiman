@@ -20,8 +20,8 @@ User.create!(name:  "Example User",
 end
 
 #機種のサンプルデータ
-Machine.create!(kind: "Exaple Machine")
-
+Machine.create!(type: "Exaple Machine")
+debugger
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
