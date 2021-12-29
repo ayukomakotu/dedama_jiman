@@ -8,5 +8,6 @@ class CreateMachines < ActiveRecord::Migration[6.1]
                                      foreign_key: true
       t.timestamps
     end
+    add_index :machines, :name,      unique: true
   end
 end
