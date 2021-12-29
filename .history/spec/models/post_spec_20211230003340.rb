@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
 
   let!(:test_post)    { create(:test_post) }
+  let!(:most_recent)  { build(:most_recent)}
   before do
     @post = test_post.user.posts.build(content: "valid_post",
                                     user: test_post.user,
@@ -27,13 +28,15 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  context "order" do               
+  context "order" do
+    let!(:most_recent) { {content: "most_recent",
+                             user: test_post.user,
+                          machine: test_post.machine,
+                             kind: test_post.kind,
+                   classification: test_post.classification,
+                       created_at: Time.zone.now } }
     it "投稿は作成時間の逆順で表示されるか" do
-      most_recent = Post.create(content: "most_recent",
-                                   user: test_post.user,
-                                machine: test_post.machine,
-                                   kind: test_post.kind,
-                         classification: test_post.classification)
+      debugger
       expect(Post.first).to eq most_recent
     end
   end

@@ -1,19 +1,17 @@
 FactoryBot.define do
   factory :test_post, class: Post do
     content        {"test post"}
-    association :user,           factory: :michael
-    association :machine,        factory: :test_machine
-    association :kind,           factory: :test_kind
-    association :classification, factory: :test_classification
+    association :user, factory: :michael
+    association :machine, factory: :test_machine
+    association :kind,    factory: :test_kind
+    classification { test_machine.classification }
     created_at {10.minutes.ago}
   end 
   
   factory :most_recent, class: Post do
+    association :user,    factory: :michael
+    association :machine, factory: :test_machine
     content    {"most recent"}
-    association :user,           factory: :michael
-    association :machine,        factory: :test_machine
-    association :kind,           factory: :test_kind
-    association :classification, factory: :test_classification
     created_at {Time.zone.now}
   end
 

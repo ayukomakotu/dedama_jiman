@@ -10,7 +10,7 @@ FactoryBot.define do
   
   factory :most_recent, class: Post do
     content    {"most recent"}
-    association :user,           factory: :michael
+    user       { test_post.user }
     association :machine,        factory: :test_machine
     association :kind,           factory: :test_kind
     association :classification, factory: :test_classification

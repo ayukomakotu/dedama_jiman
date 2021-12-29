@@ -1,4 +1,5 @@
 FactoryBot.define do
+
   factory :michael, class: User do
     name                     {"Michael Example"}
     email                    {"michael@example.com"}
@@ -7,6 +8,7 @@ FactoryBot.define do
     confirmed_at             {2.hour.ago}
     confirmation_sent_at     {1.hour.ago}
   end
+  debugger
 
   factory :archer, class: User do
     name                     {"Archer Example"}

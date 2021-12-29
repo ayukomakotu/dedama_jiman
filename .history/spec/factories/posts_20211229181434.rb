@@ -9,11 +9,11 @@ FactoryBot.define do
   end 
   
   factory :most_recent, class: Post do
-    content    {"most recent"}
     association :user,           factory: :michael
     association :machine,        factory: :test_machine
     association :kind,           factory: :test_kind
     association :classification, factory: :test_classification
+    content    {"most recent"}
     created_at {Time.zone.now}
   end
 

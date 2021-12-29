@@ -1,4 +1,5 @@
 FactoryBot.define do
+debugger
   factory :michael, class: User do
     name                     {"Michael Example"}
     email                    {"michael@example.com"}

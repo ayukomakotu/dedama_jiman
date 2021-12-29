@@ -3,4 +3,5 @@ FactoryBot.define do
     name { "test_kind" }
     association :classification, factory: :test_classification
   end
+  debugger
 end
