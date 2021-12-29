@@ -22,8 +22,6 @@ RSpec.describe Machine, type: :model do
     end
 
     it "一意性が担保されているか" do
-      @machine.name = "test_machine"
-      expect(@machine).to be_invalid
-    end
+
   end
 end
