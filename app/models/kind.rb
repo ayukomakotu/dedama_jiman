@@ -1,5 +1,5 @@
-class Machine < ApplicationRecord
+class Kind < ApplicationRecord
     has_many :posts
-    belongs_to :kind
+    has_many :machines
     belongs_to :classification
 end

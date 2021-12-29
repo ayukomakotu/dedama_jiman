@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :test_post, class: Post do
-    association :user,    factory: :michael
-    association :machine, factory: :test_machine
     content    {"MyText"}
     created_at {10.minutes.ago}
   end 

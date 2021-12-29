@@ -73,8 +73,17 @@ RSpec.describe User, type: :model do
 
   context "has_many :posts　関連" do
 
-    let!(:michael) { FactoryBot.create(:michael)}
-    let!(:test_post) { FactoryBot.create(:test_post, user: michael) }
+    let!(:michael)               { FactoryBot.create(:michael)}
+    let!(:test_classification)   { create(:test_classification) }
+    let!(:test_kind)             { create(:test_kind, classification: test_classification) }
+                                 
+    let!(:test_machine)          { create(:test_machine, kind: test_kind,
+                                                         classification: test_classification) }
+                                 
+    let!(:test_post)             { FactoryBot.create(:test_post, user: michael,
+                                                                 classification: test_classification,
+                                                                 kind: test_kind,
+                                                                 machine: test_machine) }
 
     it "userが削除されるとpostも削除される" do
       expect do

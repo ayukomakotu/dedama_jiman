@@ -2,9 +2,22 @@ require 'rails_helper'
 
 RSpec.describe "UsersProfiles", type: :system do
   
-  let!(:michael)   {FactoryBot.create(:michael)}
-  let!(:test_post) {FactoryBot.create(:test_post, user: michael)}
-  let!(:oldest)    {FactoryBot.create(:oldest, user: michael)}
+  let!(:michael)               { create(:michael)}
+  let!(:test_classification)   { create(:test_classification) }
+  let!(:test_kind)             { create(:test_kind, classification: test_classification) }
+                                 
+  let!(:test_machine)          { create(:test_machine, kind: test_kind,
+                                                       classification: test_classification) }
+                                 
+  let!(:test_post)             { create(:test_post, user: michael,
+                                                    classification: test_classification,
+                                                    kind: test_kind,
+                                                    machine: test_machine) }
+
+  let!(:oldest)                { create(:oldest, user: michael,
+                                                 classification: test_classification,
+                                                 kind: test_kind,
+                                                 machine: test_machine) }
 
   context "head" do
     it "タイトルは正しいか" do

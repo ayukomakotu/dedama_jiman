@@ -10,20 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_28_065611) do
+ActiveRecord::Schema.define(version: 2021_12_29_034938) do
 
-  create_table "machines", force: :cascade do |t|
+  create_table "acquireds", force: :cascade do |t|
+    t.integer "number"
+    t.text "unit"
+    t.integer "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_acquireds_on_post_id"
+  end
+
+  create_table "classifications", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "kinds", force: :cascade do |t|
+    t.text "name"
+    t.integer "classification_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classification_id"], name: "index_kinds_on_classification_id"
+  end
+
+  create_table "machines", force: :cascade do |t|
+    t.text "name"
+    t.integer "kind_id", null: false
+    t.integer "classification_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classification_id"], name: "index_machines_on_classification_id"
+    t.index ["kind_id"], name: "index_machines_on_kind_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
+    t.integer "machine_id", null: false
+    t.integer "kind_id", null: false
+    t.integer "classification_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "machine_id", null: false
+    t.index ["classification_id"], name: "index_posts_on_classification_id"
+    t.index ["kind_id"], name: "index_posts_on_kind_id"
     t.index ["machine_id"], name: "index_posts_on_machine_id"
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -47,6 +78,12 @@ ActiveRecord::Schema.define(version: 2021_12_28_065611) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "acquireds", "posts"
+  add_foreign_key "kinds", "classifications"
+  add_foreign_key "machines", "classifications"
+  add_foreign_key "machines", "kinds"
+  add_foreign_key "posts", "classifications"
+  add_foreign_key "posts", "kinds"
   add_foreign_key "posts", "machines"
   add_foreign_key "posts", "users"
 end

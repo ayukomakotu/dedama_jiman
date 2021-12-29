@@ -2,13 +2,28 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
 
-  let!(:michael)      { create(:michael) }
-  let!(:test_post)    { create(:test_post, user: michael) }
-  let!(:most_recent)  { create(:most_recent, user: michael) }
-  let!(:test_machine) { create(:test_machine)}
+  let!(:michael)               { create(:michael) }
+  let!(:test_classification)   { create(:test_classification) }
+  let!(:test_kind)             { create(:test_kind, classification: test_classification) }
+                                 
+  let!(:test_machine)          { create(:test_machine, kind: test_kind,
+                                                       classification: test_classification) }
+                                 
+  let!(:test_post)             { create(:test_post, user: michael,
+                                                    classification: test_classification,
+                                                    kind: test_kind,
+                                                    machine: test_machine) }
+
+  let!(:most_recent)           { create(:most_recent, user: michael,
+                                                      classification: test_classification,
+                                                      kind: test_kind,
+                                                      machine: test_machine) }
+  
   
   before do  
-    @post = michael.posts.build(content: "Lorem ipsum", machine: test_machine)
+    @post = michael.posts.build(content: "Lorem ipsum", machine: test_machine,
+                                                        kind: test_kind,
+                                                        classification: test_classification)
   end
 
   it "postが有効になるか" do
