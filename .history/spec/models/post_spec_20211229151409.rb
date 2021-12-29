@@ -21,9 +21,7 @@ RSpec.describe Post, type: :model do
   
   
   before do  
-    @post = michael.posts.build(content: "Lorem ipsum", machine: test_machine,
-                                                        kind: test_kind,
-                                                        classification: test_classification)
+    @post = michael.posts.build(content: "Lorem ipsum", machine: test_machine)
   end
 
   it "postが有効になるか" do

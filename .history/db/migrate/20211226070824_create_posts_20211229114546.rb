@@ -11,7 +11,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.references :kind,           null: false,
                                     foreign_key: true
 
-      t.references :classification, null: false, 
+      t.references :classfication,  null: false, 
                                     foreign_key: true
 
       t.timestamps

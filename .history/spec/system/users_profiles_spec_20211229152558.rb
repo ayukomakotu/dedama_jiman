@@ -17,7 +17,7 @@ RSpec.describe "UsersProfiles", type: :system do
   let!(:oldest)                { create(:oldest, user: michael,
                                                  classification: test_classification,
                                                  kind: test_kind,
-                                                 machine: test_machine) }
+                                                 machine: test_machine) })}
 
   context "head" do
     it "タイトルは正しいか" do

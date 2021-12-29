@@ -8,14 +8,12 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.references :machine,        null: false, 
                                     foreign_key: true
 
-      t.references :kind,           null: false,
-                                    foreign_key: true
-
-      t.references :classification, null: false, 
+      t.references :classfications, null: false, 
                                     foreign_key: true
 
       t.timestamps
     end
     add_index :posts, [:user_id, :created_at]
+    add_index :posts, [:machine_id, :]
   end
 end
