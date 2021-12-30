@@ -19,25 +19,13 @@ User.create!(name:  "Example User",
                  confirmation_sent_at: Time.zone.now)
 end
 
-#区分のサンプルデータ
-Classification.create!(name: "Example Classification")
-#タイプのサンプルデータ
-Kind.create!(name: "Example kind", classification: Classification.first)
 #機種のサンプルデータ
-Machine.create!(name: "Example Machine", classification: Classification.first,
-                                         kind: Kind.first)
+Machine.create!(: "Exaple Machine")
 
-#postのサンプルデータ acquiredのサンプルデータ
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
-  users.each do |user| 
-    post = user.posts.create!(content: content,
-                              machine: Machine.first,
-                                 kind: Kind.first,
-                       classification: Classification.first) 
-    post.acquireds.create!(number: 10000, unit: "枚")
-  end
+  users.each { |user| user.posts.create!(content: content,
+                                         machine: Machine.first) }
 end
-
 

@@ -27,17 +27,11 @@ Kind.create!(name: "Example kind", classification: Classification.first)
 Machine.create!(name: "Example Machine", classification: Classification.first,
                                          kind: Kind.first)
 
-#postのサンプルデータ acquiredのサンプルデータ
+#postのサンプルデータ
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
-  users.each do |user| 
-    post = user.posts.create!(content: content,
-                              machine: Machine.first,
-                                 kind: Kind.first,
-                       classification: Classification.first) 
-    post.acquireds.create!(number: 10000, unit: "枚")
-  end
+  users.each { |user| user.posts.create!(content: content,
+                                         machine: Machine.first) }
 end
-
 

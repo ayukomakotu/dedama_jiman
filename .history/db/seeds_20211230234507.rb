@@ -36,8 +36,8 @@ users = User.order(:created_at).take(6)
                               machine: Machine.first,
                                  kind: Kind.first,
                        classification: Classification.first) 
-    post.acquireds.create!(number: 10000, unit: "枚")
   end
+   post.acquireds.create!(number: 10000, unit: "枚")
 end
 
 

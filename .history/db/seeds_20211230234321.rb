@@ -31,13 +31,11 @@ Machine.create!(name: "Example Machine", classification: Classification.first,
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
-  users.each do |user| 
-    post = user.posts.create!(content: content,
-                              machine: Machine.first,
-                                 kind: Kind.first,
-                       classification: Classification.first) 
-    post.acquireds.create!(number: 10000, unit: "枚")
-  end
+  users.each { |user| post = user.posts.create!(content: content,
+                                                machine: Machine.first,
+                                                   kind: Kind.first,
+                                         classification: Classification.first) }
+   post.acquireds.create!(number: 10000, unit: "枚")
 end
 
 
