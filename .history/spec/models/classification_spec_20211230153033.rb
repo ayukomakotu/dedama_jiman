@@ -20,7 +20,7 @@ RSpec.describe Classification, type: :model do
     end
 
     it "nameの一意性が担保されているか" do
-      @classification.name = "test_classification"
+      @classification.name = "test_kind"
       expect(@classification).to be_invalid
     end
   end

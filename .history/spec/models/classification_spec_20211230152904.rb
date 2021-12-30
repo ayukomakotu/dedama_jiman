@@ -5,7 +5,7 @@ RSpec.describe Classification, type: :model do
   let!(:test_classification) {FactoryBot.create(:test_classification)}
 
   before do
-    @classification = Classification.new(name: "sample_classification")
+    @classification = Kind.new(name: "sample_classification")
   end
 
   context "validation" do
@@ -20,7 +20,7 @@ RSpec.describe Classification, type: :model do
     end
 
     it "nameの一意性が担保されているか" do
-      @classification.name = "test_classification"
+      @classification.name = "test_kind"
       expect(@classification).to be_invalid
     end
   end
