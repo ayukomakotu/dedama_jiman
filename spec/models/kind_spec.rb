@@ -19,10 +19,5 @@ RSpec.describe Kind, type: :model do
       @kind.name = "  "
       expect(@kind).to be_invalid
     end
-
-    it "nameの一意性が担保されているか" do
-      @kind.name = "test_kind"
-      expect(@kind).to be_invalid
-    end
   end
 end

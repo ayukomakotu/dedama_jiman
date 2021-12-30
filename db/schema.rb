@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2021_12_29_034938) do
     t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_classifications_on_name", unique: true
   end
 
   create_table "kinds", force: :cascade do |t|
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 2021_12_29_034938) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classification_id"], name: "index_kinds_on_classification_id"
-    t.index ["name"], name: "index_kinds_on_name", unique: true
   end
 
   create_table "machines", force: :cascade do |t|
@@ -45,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_12_29_034938) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classification_id"], name: "index_machines_on_classification_id"
     t.index ["kind_id"], name: "index_machines_on_kind_id"
-    t.index ["name"], name: "index_machines_on_name", unique: true
   end
 
   create_table "posts", force: :cascade do |t|

@@ -18,11 +18,6 @@ RSpec.describe Classification, type: :model do
       @classification.name = "  "
       expect(@classification).to be_invalid
     end
-
-    it "nameの一意性が担保されているか" do
-      @classification.name = "test_classification"
-      expect(@classification).to be_invalid
-    end
   end
 
 end
