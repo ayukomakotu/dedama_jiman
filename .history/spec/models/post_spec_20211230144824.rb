@@ -3,9 +3,8 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
 
   let!(:test_kind)    { create(:test_kind)}
-  let!(:test_machine) { create(:test_machine) }
-  let!(:test_post)    { create(:test_post) }
-
+  #let!(:test_machine) { create(:test_machine) }
+  #let!(:test_post)    { create(:test_post) }
   before do
     @post = test_post.user.posts.build(content: "valid_post",
                                     user: test_post.user,
@@ -16,6 +15,7 @@ RSpec.describe Post, type: :model do
 
   context "validation" do
     it "postが有効になるか" do
+      debugger
       expect(@post).to be_valid
     end
 

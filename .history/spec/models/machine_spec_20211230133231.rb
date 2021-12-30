@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Machine, type: :model do
   
-  let!(:test_kind)    { FactoryBot.create(:test_kind) }
   let!(:test_machine) { FactoryBot.create(:test_machine) }
 
   before do

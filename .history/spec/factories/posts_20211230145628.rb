@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :test_post, class: Post do
-    content           {"test post"}
+    content        {"test post"}
     association :user,           factory: :michael
-    machine           { Machine.first }
-    kind              { Kind.first }
+    machine        { Machine.first }
+    kind           { Kind.first }
     classification    { Classification.first }
     created_at {10.minutes.ago}
   end 

@@ -7,6 +7,6 @@ class CreateKinds < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :kinds, :name,        unique: true
+    add_index :kinds, :name,        uniqueness: true
   end
 end

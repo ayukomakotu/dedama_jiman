@@ -20,8 +20,8 @@ RSpec.describe Kind, type: :model do
       expect(@kind).to be_invalid
     end
 
-    it "nameの一意性が担保されているか" do
-      @kind.name = "test_kind"
+    it "一意性が担保されているか" do
+      @kind.name = "test_machine"
       expect(@kind).to be_invalid
     end
   end

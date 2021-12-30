@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
 
-  let!(:test_kind)    { create(:test_kind)}
-  let!(:test_machine) { create(:test_machine) }
+  let!(:test_machine) { create(:test_machine)}
   let!(:test_post)    { create(:test_post) }
-
   before do
     @post = test_post.user.posts.build(content: "valid_post",
                                     user: test_post.user,
