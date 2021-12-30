@@ -7,22 +7,23 @@ RSpec.describe Acquired, type: :model do
   let!(:test_post)    { create(:test_post) }
 
   before do
-    @acquired = test_post.acquireds.build(number: 10000, unit: "枚")
+    debugger
+    @acquired = test_post.acquireds.build(number: 10000, unit: "枚", post: test_post)
   end
 
   context "validation" do
 
-    it "有効になるか" do
+    it "machineが有効になるか" do
       expect(@acquired).to be_valid
     end
 
-    it "numberが空で無効になる" do
-      @acquired.number = "  "
+    it "nameが空で無効になる" do
+      @acquired.name = "  "
       expect(@acquired).to be_invalid
     end
 
-    it "unitが空で無効になる" do
-      @acquired.unit = "  "
+    it "nameの一意性が担保されているか" do
+      @acquired.name = "test_kind"
       expect(@acquired).to be_invalid
     end
   end

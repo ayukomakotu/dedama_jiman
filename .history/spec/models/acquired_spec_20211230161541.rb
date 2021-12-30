@@ -16,7 +16,7 @@ RSpec.describe Acquired, type: :model do
       expect(@acquired).to be_valid
     end
 
-    it "numberが空で無効になる" do
+    it "nameが空で無効になる" do
       @acquired.number = "  "
       expect(@acquired).to be_invalid
     end

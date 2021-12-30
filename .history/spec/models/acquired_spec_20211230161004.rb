@@ -16,13 +16,13 @@ RSpec.describe Acquired, type: :model do
       expect(@acquired).to be_valid
     end
 
-    it "numberが空で無効になる" do
-      @acquired.number = "  "
+    it "nameが空で無効になる" do
+      @acquired.name = "  "
       expect(@acquired).to be_invalid
     end
 
-    it "unitが空で無効になる" do
-      @acquired.unit = "  "
+    it "nameの一意性が担保されているか" do
+      @acquired.name = "test_kind"
       expect(@acquired).to be_invalid
     end
   end
