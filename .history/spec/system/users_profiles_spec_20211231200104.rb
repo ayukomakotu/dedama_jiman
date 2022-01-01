@@ -28,7 +28,7 @@ RSpec.describe "UsersProfiles", type: :system do
   end
 
   context "sidebar" do
-    pending "正しいユーザーの情報が表示されているか" do
+    it "正しいユーザーの情報が表示されているか" do
       visit user_path(michael)
       expect(page).to have_content michael.name
     end

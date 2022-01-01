@@ -21,14 +21,14 @@ RSpec.describe "UsersProfiles", type: :system do
   let!(:acquired)              { create(:acquired) }
 
   context "head" do
-    pending "タイトルは正しいか" do
+    it "タイトルは正しいか" do
       visit user_path(michael)
       expect(page).to have_title michael.name
     end
   end
 
   context "sidebar" do
-    pending "正しいユーザーの情報が表示されているか" do
+    it "正しいユーザーの情報が表示されているか" do
       visit user_path(michael)
       expect(page).to have_content michael.name
     end
@@ -37,6 +37,7 @@ RSpec.describe "UsersProfiles", type: :system do
   context "post" do
     pending "postにuserへのリンクがある" do
       visit user_path(michael)
+      debugger
       click_on michael.name
       expect(current_path).to eq user_path(michael)
     end
@@ -49,14 +50,14 @@ RSpec.describe "UsersProfiles", type: :system do
       expect(current_path).to eq user_path(oldest.user)
     end
 
-    pending "post内にmachine名の記載があるか 投稿フォーム実装後再度実装" do
+    it "post内にmachine名の記載があるか" do
       get user_path(michael)
       expect(response.body).to include test_post.machine.name
     end
 
-    pending "post内にaquired 獲得量　単位が表示されている 投稿フォーム作成後再度実装" do
+    it "post内にaquired 獲得量　単位が表示されている" do
       get user_path(michael)
-      expect(response.body).to include test_post.acquireds.first.number.to_s
+      expect(response.body).to include test_post.acquireds.first.number
       expect(response.body).to include test_post.acquireds.first.unit
     end
   end

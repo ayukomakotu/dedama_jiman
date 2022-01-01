@@ -21,14 +21,14 @@ RSpec.describe "UsersProfiles", type: :system do
   let!(:acquired)              { create(:acquired) }
 
   context "head" do
-    pending "タイトルは正しいか" do
+    it "タイトルは正しいか" do
       visit user_path(michael)
       expect(page).to have_title michael.name
     end
   end
 
   context "sidebar" do
-    pending "正しいユーザーの情報が表示されているか" do
+    it "正しいユーザーの情報が表示されているか" do
       visit user_path(michael)
       expect(page).to have_content michael.name
     end
