@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :acquired do
-    number { 1 }
-    unit { "MyText" }
-    post { nil }
+    number { 10000 }
+    unit { "枚" }
+    post { Post.first }
   end
 end

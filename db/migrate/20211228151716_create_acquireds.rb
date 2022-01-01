@@ -7,5 +7,7 @@ class CreateAcquireds < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :acquireds, :number, unique: true
+    add_index :acquireds, :unit, unique: true
   end
 end

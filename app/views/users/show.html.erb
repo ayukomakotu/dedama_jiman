@@ -13,6 +13,7 @@
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">
         <% @posts.each do |post| %>
+          <%  %>
           <li id="post-<%= post.id %>">
             <span class="user"><%= link_to post.user.name, post.user %></span>
             <span class="machine"><%= post.machine.name %></span>
