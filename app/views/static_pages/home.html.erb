@@ -1,9 +1,16 @@
 <div class="center jumbotron">
-    <h3>
-        This is the home page for dedam_jiman
-    </h3>
-
-    <%= link_to "Sign up now!", new_user_registration_path, 
+　<h3>
+　　This is the home page for dedam_jiman
+　</h3>
+　<% if user_signed_in? %>
+   <section>
+    <%= render 'posts/post_form' %>
+   </section>
+  <% else %>
+　 <%= link_to "Sign up now!", new_user_registration_path, 
                                 class: "btn btn-lg btn-info" %>
+  <% end %>
+   
+
 </div>
 
