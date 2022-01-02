@@ -2,10 +2,8 @@
 　<h3>
 　　This is the home page for dedam_jiman
 　</h3>
-　<% if user_signed_in? %>
-   <section>
-    <%= render 'posts/post_form' %>
-   </section>
+　<% if user_signeed_in? %>
+   <%= post_form %>
   <% else %>
 　 <%= link_to "Sign up now!", new_user_registration_path, 
                                 class: "btn btn-lg btn-info" %>

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
     def create
         @post = current_user.posts.build(post_params)
         @acquired = @post.acquireds.build(acquired_params)
+        debugger
         if params[:post][:classification_id] == 1
             @acquired.unit = "発"
         else

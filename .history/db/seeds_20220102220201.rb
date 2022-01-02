@@ -36,7 +36,7 @@ Machine.create!(name: "牙狼", classification: Classification.first, kind: Kind
 Machine.create!(name: "エヴァ", classification: Classification.first, kind: Kind.first)                                         
 Machine.create!(name: "バジリスク", classification: Classification.first, kind: Kind.first)
 Machine.create!(name: "聖闘士星矢", classification: Classification.first, kind: Kind.first)                                         
-Machine.create!(name: "番長", classification: Classification.first, kind: Kind.first)                                         
+Machine.create!(name: "番長", 　　　classification: Classification.first, kind: Kind.first)                                         
 
 #postのサンプルデータ acquiredのサンプルデータ
 users = User.order(:created_at).take(6)

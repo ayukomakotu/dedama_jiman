@@ -2,12 +2,12 @@ class PostsController < ApplicationController
     def create
         @post = current_user.posts.build(post_params)
         @acquired = @post.acquireds.build(acquired_params)
-        if params[:post][:classification_id] == 1
-            @acquired.unit = "発"
-        else
-            @acquired.unit = "枚"
-        end
-        if @post.save && @acquired.save
+        if @post.save
+            if params[:post][:classification_id] == 1
+                @acquired.unit = "発"
+            else
+                @acquired.unit = "枚"
+            end
             flash[:success] = "Post created!"
             redirect_to user_path(current_user)
         else

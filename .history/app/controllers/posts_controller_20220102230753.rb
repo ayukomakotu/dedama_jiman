@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     def create
+        debugger
         @post = current_user.posts.build(post_params)
         @acquired = @post.acquireds.build(acquired_params)
         if params[:post][:classification_id] == 1

@@ -40,15 +40,15 @@ Machine.create!(name: "番長", classification: Classification.first, kind: Kind
 
 #postのサンプルデータ acquiredのサンプルデータ
 users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(word_count: 5)
-  users.each do |user| 
-    post = user.posts.create!(content: content,
-                              machine: Machine.first,
-                                 kind: Kind.first,
-                       classification: Classification.first) 
-    post.acquireds.create!(number: 10000, unit: "枚")
-  end
-end
+#50.times do
+ # content = Faker::Lorem.sentence(word_count: 5)
+  #users.each do |user| 
+   # post = user.posts.create!(content: content,
+    #                          machine: Machine.first,
+     #                            kind: Kind.first,
+      #                 classification: Classification.first) 
+    #post.acquireds.create!(number: 10000, unit: "枚")
+  #end
+#end
 
 

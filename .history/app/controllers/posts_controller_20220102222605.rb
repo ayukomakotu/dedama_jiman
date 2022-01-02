@@ -7,8 +7,10 @@ class PostsController < ApplicationController
         else
             @acquired.unit = "枚"
         end
+        debugger
         if @post.save && @acquired.save
             flash[:success] = "Post created!"
+            debugger
             redirect_to user_path(current_user)
         else
             render 'static_pages/home'

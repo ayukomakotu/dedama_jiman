@@ -4,8 +4,9 @@
 　</h3>
 　<% if user_signed_in? %>
    <section>
-    <%= render 'posts/post_form' %>
+    <%= render 'shared/post_form' %>
    </section>
+   <%= "post_form" %>
   <% else %>
 　 <%= link_to "Sign up now!", new_user_registration_path, 
                                 class: "btn btn-lg btn-info" %>
