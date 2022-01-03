@@ -44,9 +44,7 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(word_count: 5)
   users.each do |user| 
     post = user.posts.create!(content: content,
-                              machine: Machine.first,
-                                 kind: Kind.first,
-                       classification: Classification.first) 
+                              machine: Machine.first)
     post.acquireds.create!(number: 10000, unit: "枚")
   end
 end

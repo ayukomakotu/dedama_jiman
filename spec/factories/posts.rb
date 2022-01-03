@@ -3,8 +3,6 @@ FactoryBot.define do
     content           {"test post"}
     association :user,           factory: :michael
     machine           { Machine.first }
-    kind              { Kind.first }
-    classification    { Classification.first }
     created_at {10.minutes.ago}
   end 
   
@@ -12,8 +10,6 @@ FactoryBot.define do
     content    {"most recent"}
     association :user,           factory: :michael
     association :machine,        factory: :test_machine
-    association :kind,           factory: :test_kind
-    association :classification, factory: :test_classification
     created_at {Time.zone.now}
   end
 

@@ -81,8 +81,6 @@ RSpec.describe User, type: :model do
                                   classification: pachinko) }
                                  
     let!(:test_post)     { FactoryBot.create(:test_post, user: michael,
-                                             classification: pachinko,
-                                             kind: test_kind,
                                              machine: test_machine) }
 
     it "userが削除されるとpostも削除される" do
