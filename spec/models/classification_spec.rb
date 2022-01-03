@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Classification, type: :model do
 
-  let!(:test_classification) {FactoryBot.create(:test_classification)}
+  let!(:pachinko) {FactoryBot.create(:pachinko)}
 
   before do
     @classification = Classification.new(name: "sample_classification")

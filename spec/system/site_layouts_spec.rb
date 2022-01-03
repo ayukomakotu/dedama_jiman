@@ -6,6 +6,9 @@ RSpec.describe "SiteLayouts", type: :system do
     @user = FactoryBot.create(:michael)
   end
 
+  let!(:pachinko) { create(:pachinko) }
+  let!(:slot) { create(:slot) }
+
   context "headerのリンク" do
     it "homeへのリンクがあるか" do
       visit root_path

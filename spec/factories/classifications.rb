@@ -1,5 +1,10 @@
 FactoryBot.define do
-  factory :test_classification, class: Classification do
-    name { "test_classification" }
+  factory :pachinko, class: Classification do
+    name { "pachinko" }
   end
+
+  factory :slot, class: Classification do
+    name { "slot" }
+  end
+
 end
