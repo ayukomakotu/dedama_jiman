@@ -4,7 +4,10 @@
       
         <div class="select_box">
             <%= f.label :機種 %>
-            <%= f.collection_select :machine_id, Machine.all, :id, :name, prompt: "機種を選択してください" %>
+            <%= f.label :パチンコ %>
+            <%= f.collection_select :machine, @pachi.all, :id, :name, prompt: "機種を選択してください" %>
+            <%= f.label :スロット %>
+            <%= f.collection_select :machine, @slot.all, :id, :name, prompt: "機種を選択してください" %>
         </div>
         
         <div class="acquired">

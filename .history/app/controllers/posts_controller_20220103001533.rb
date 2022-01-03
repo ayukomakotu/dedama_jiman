@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
     def create
-        @machine = Machine.find(params[:post][:machine_id])
         @post = current_user.posts.build(post_params)
-        @post.kind_id = @machine.kind_id
-        @post.classification_id = @machine.classification_id
         @acquired = @post.acquireds.build(acquired_params)
         if params[:post][:classification_id] == 1
             @acquired.unit = "発"

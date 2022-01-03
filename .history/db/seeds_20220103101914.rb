@@ -34,9 +34,9 @@ Kind.create!(name: "A", classification: Classification.second)
 Machine.create!(name: "北斗", classification: Classification.first, kind_id: 2)
 Machine.create!(name: "牙狼", classification: Classification.first, kind_id: 1)                                         
 Machine.create!(name: "エヴァ", classification: Classification.first, kind_id: 1)                                         
-Machine.create!(name: "バジリスク", classification: Classification.second, kind_id: 5)
-Machine.create!(name: "聖闘士星矢", classification: Classification.second, kind_id: 6)                                         
-Machine.create!(name: "番長", classification: Classification.second, kind_id: 6)                                         
+Machine.create!(name: "バジリスク", classification: Classification.first, kind_id: 5)
+Machine.create!(name: "聖闘士星矢", classification: Classification.first, kind_id: 6)                                         
+Machine.create!(name: "番長", classification: Classification.first, kind_id: 6)                                         
 
 #postのサンプルデータ acquiredのサンプルデータ
 users = User.order(:created_at).take(6)

@@ -4,7 +4,7 @@
       
         <div class="select_box">
             <%= f.label :機種 %>
-            <%= f.collection_select :machine_id, Machine.all, :id, :name, prompt: "機種を選択してください" %>
+            <%= f.collection_select :machine, @machine.all, :id, :name, prompt: "機種を選択してください" %>
         </div>
         
         <div class="acquired">

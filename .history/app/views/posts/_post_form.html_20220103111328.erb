@@ -3,19 +3,22 @@
     <div class="field">
       
         <div class="select_box">
-            <%= f.label :機種 %>
-            <%= f.collection_select :machine_id, Machine.all, :id, :name, prompt: "機種を選択してください" %>
+            <%= f.label :machine %>
+            <%= f.label :pachinko %>
+            <%= f.collection_select :machine, @pachi.all, :id, :name %>
+            <%= f.label :slot %>
+            <%= f.collection_select :machine, @slot.all, :id, :name %>
         </div>
         
         <div class="acquired">
             <%= fields_for @acquired do |a| %>
-                <%= a.label :最大獲得 %>
+                <%= a.label :acquired %>
                 <%= a.number_field :number, placeholder: "Compose number" %>
             <% end %>
         </div>
 
         <div class="content">
-            <%= f.label :コメント %>
+            <%= f.label :content %>
             <%= f.text_area :content, placeholder: "Compose new post..." %>
         </div>
 

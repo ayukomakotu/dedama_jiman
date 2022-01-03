@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     def create
-        @machine = Machine.find(params[:post][:machine_id])
+        @machine = Machine.find(params[:post][:machine])
         @post = current_user.posts.build(post_params)
         @post.kind_id = @machine.kind_id
         @post.classification_id = @machine.classification_id

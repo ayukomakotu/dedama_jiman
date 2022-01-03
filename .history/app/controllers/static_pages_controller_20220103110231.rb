@@ -3,7 +3,8 @@ class StaticPagesController < ApplicationController
         if user_signed_in?
             @post = current_user.posts.build
             @acquired = @post.acquireds.build
-            @pmachine = Machine.all
+            @slot = Classification.first.machines.all
+            debugger
         end
     end
 
