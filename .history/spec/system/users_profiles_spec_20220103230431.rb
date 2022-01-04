@@ -19,7 +19,6 @@ RSpec.describe "UsersProfiles", type: :system do
   context "head" do
     it "タイトルは正しいか" do
       visit user_path(michael)
-      debugger
       expect(page).to have_title michael.name
     end
   end

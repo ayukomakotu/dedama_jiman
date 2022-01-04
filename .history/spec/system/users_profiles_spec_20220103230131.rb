@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe "UsersProfiles", type: :system do
   
   let!(:michael)               { create(:michael)}
-  let!(:pachinko)              { create(:pachinko) }
-  let!(:test_kind)             { create(:test_kind, classification: pachinko) }
+  let!(:test_classification)   { create(:test_classification) }
+  let!(:test_kind)             { create(:test_kind, classification: test_classification) }
                                  
   let!(:test_machine)          { create(:test_machine, kind: test_kind,
-                                                       classification: pachinko) }
+                                                       classification: test_classification) }
                                  
   let!(:test_post)             { create(:test_post, user: michael,
                                                     machine: test_machine) }
@@ -19,7 +19,6 @@ RSpec.describe "UsersProfiles", type: :system do
   context "head" do
     it "タイトルは正しいか" do
       visit user_path(michael)
-      debugger
       expect(page).to have_title michael.name
     end
   end
