@@ -39,9 +39,9 @@ RSpec.describe "UsersProfiles", type: :system do
       create_list(:sample_post, 30, user: michael)
       create_list(:sample_acquired, 30)
       visit user_path(michael)
+      debugger
       click_on "Next"
-      click_on michael.name
-      expect(current_path).to eq user_path(michael)
+      expect(response.body).to include test_post.content
     end
 
     it "post内にmachine名の記載があるか 投稿フォーム実装後再度実装" do

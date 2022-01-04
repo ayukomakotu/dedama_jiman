@@ -13,6 +13,6 @@ FactoryBot.define do
   factory :sample_acquired, class: Acquired do
     number {100}
     unit {"発"}
-    sequence(:post_id)  { |n| n+1 }
+    sequence(:post_id)  { |n| n }
   end
 end

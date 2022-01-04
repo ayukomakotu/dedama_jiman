@@ -37,11 +37,11 @@ RSpec.describe "UsersProfiles", type: :system do
     
     it "ページネーションが機能している" do
       create_list(:sample_post, 30, user: michael)
-      create_list(:sample_acquired, 30)
+      create_list(:sample_acquired, 30, post_id: n+1)
       visit user_path(michael)
+      debugger
       click_on "Next"
-      click_on michael.name
-      expect(current_path).to eq user_path(michael)
+      expect(response.body).to include test_post.content
     end
 
     it "post内にmachine名の記載があるか 投稿フォーム実装後再度実装" do

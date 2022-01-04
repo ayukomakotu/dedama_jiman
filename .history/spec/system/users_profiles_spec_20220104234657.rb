@@ -40,6 +40,7 @@ RSpec.describe "UsersProfiles", type: :system do
       create_list(:sample_acquired, 30)
       visit user_path(michael)
       click_on "Next"
+
       click_on michael.name
       expect(current_path).to eq user_path(michael)
     end

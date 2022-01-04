@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "UsersProfiles", type: :system do
   
   let!(:michael)               { create(:michael)}
-  let!(:archer)                { create(:archer)}
   let!(:pachinko)              { create(:pachinko) }
   let!(:test_kind)             { create(:test_kind, classification: pachinko) }
                                  
@@ -12,7 +11,11 @@ RSpec.describe "UsersProfiles", type: :system do
                                  
   let!(:test_post)             { create(:test_post, user: michael,
                                                     machine: test_machine) }
+
+  #let!(:oldest)                { create(:oldest, user: michael,
+                                                 machine: test_machine) }
   let!(:acquired)              { create(:acquired) }
+  #let!(:acquired2)             { create(:acquired2, post: oldest) }
 
   context "head" do
     it "タイトルは正しいか" do
@@ -31,17 +34,16 @@ RSpec.describe "UsersProfiles", type: :system do
   context "post" do
     it "postにuserへのリンクがある" do
       visit user_path(michael)
-      click_on michael.name
+      click_on michael.name, match: first
       expect(current_path).to eq user_path(michael)
     end
     
-    it "ページネーションが機能している" do
-      create_list(:sample_post, 30, user: michael)
-      create_list(:sample_acquired, 30)
+    pending "ページネーションが機能している" do
+      create_list(:sample_post, 29, user: michael)
       visit user_path(michael)
       click_on "Next"
-      click_on michael.name
-      expect(current_path).to eq user_path(michael)
+      click_on oldest.user.name, match: first
+      expect(current_path).to eq user_path(oldest.user)
     end
 
     it "post内にmachine名の記載があるか 投稿フォーム実装後再度実装" do

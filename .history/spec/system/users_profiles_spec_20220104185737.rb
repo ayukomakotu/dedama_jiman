@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "UsersProfiles", type: :system do
   
   let!(:michael)               { create(:michael)}
-  let!(:archer)                { create(:archer)}
   let!(:pachinko)              { create(:pachinko) }
   let!(:test_kind)             { create(:test_kind, classification: pachinko) }
                                  
@@ -12,6 +11,9 @@ RSpec.describe "UsersProfiles", type: :system do
                                  
   let!(:test_post)             { create(:test_post, user: michael,
                                                     machine: test_machine) }
+
+  let!(:oldest)                { create(:oldest, user: michael,
+                                                 machine: test_machine) }
   let!(:acquired)              { create(:acquired) }
 
   context "head" do
@@ -36,12 +38,11 @@ RSpec.describe "UsersProfiles", type: :system do
     end
     
     it "ページネーションが機能している" do
-      create_list(:sample_post, 30, user: michael)
-      create_list(:sample_acquired, 30)
+      create_list(:sample_post, 29, user: michael)
       visit user_path(michael)
       click_on "Next"
-      click_on michael.name
-      expect(current_path).to eq user_path(michael)
+      click_on oldest.user.name, match: first
+      expect(current_path).to eq user_path(oldest.user)
     end
 
     it "post内にmachine名の記載があるか 投稿フォーム実装後再度実装" do
@@ -49,7 +50,7 @@ RSpec.describe "UsersProfiles", type: :system do
       expect(response.body).to include test_post.machine.name
     end
 
-    it "post内にaquired 獲得量 単位が表示されている 投稿フォーム作成後再度実装" do
+    pending "post内にaquired 獲得量 単位が表示されている 投稿フォーム作成後再度実装" do
       get user_path(michael)
       expect(response.body).to include test_post.acquireds.first.number.to_s
       expect(response.body).to include test_post.acquireds.first.unit

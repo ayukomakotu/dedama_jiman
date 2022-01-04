@@ -12,7 +12,11 @@ RSpec.describe "UsersProfiles", type: :system do
                                  
   let!(:test_post)             { create(:test_post, user: michael,
                                                     machine: test_machine) }
+
+  let!(:oldest)                { create(:oldest, user: archer,
+                                                 machine: test_machine) }
   let!(:acquired)              { create(:acquired) }
+  let!(:acquired2)             { create(:acquired2, post: oldest) }
 
   context "head" do
     it "タイトルは正しいか" do
@@ -31,17 +35,16 @@ RSpec.describe "UsersProfiles", type: :system do
   context "post" do
     it "postにuserへのリンクがある" do
       visit user_path(michael)
-      click_on michael.name
-      expect(current_path).to eq user_path(michael)
+      click_on archer.name
+      expect(current_path).to eq user_path(archer)
     end
     
-    it "ページネーションが機能している" do
+    pending "ページネーションが機能している" do
       create_list(:sample_post, 30, user: michael)
-      create_list(:sample_acquired, 30)
       visit user_path(michael)
       click_on "Next"
-      click_on michael.name
-      expect(current_path).to eq user_path(michael)
+      click_on oldest.user.name
+      expect(current_path).to eq user_path(oldest.user)
     end
 
     it "post内にmachine名の記載があるか 投稿フォーム実装後再度実装" do
