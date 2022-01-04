@@ -8,7 +8,7 @@ let!(:archer){FactoryBot.create(:archer)}
     it "ページネーションが機能しているか" do
       create_list(:sample, 30)
       visit users_path
-      click_link "Next", match: :first
+      find_link("/users/index?page=2").click
       expect(page).to have_content User.last.name
     end
   end
