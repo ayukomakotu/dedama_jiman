@@ -2,17 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "IndexUsers", type: :system do
 
-  before do
-    100.times do |n|
-      FactoryBot.create(:sample)
-    end
-  end
+let!(:archer){FactoryBot.create(:archer)}
 
   context "GET /users/index" do
-    let(:archer){FactoryBot.create(:archer)}
-    pending "ページネーションが機能しているか" do
+    it "ページネーションが機能しているか" do
+      create_list(:sample, 30)
       visit users_path
-      find_link("/users/index?page=4").click
+      click_link "Next", match: :first
       expect(page).to have_content User.last.name
     end
   end
