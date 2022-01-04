@@ -23,6 +23,6 @@ FactoryBot.define do
     association :user, factory: :michael
     association :machine, factory: :test_machine
     sequence(:content)      { |n| "sample_post#{n}"}
-    sequence(:created_at)   { 1.hour.ago }
+    sequence(:created_at)   { 1.minutes.ago }
   end
 end
