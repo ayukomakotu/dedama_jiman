@@ -1,16 +1,17 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
-<%= paginate @users %>
+<%= will_paginate @users %>
 
 <ul class="users">
 
-    <% @users.each do |user| %>
-        <li>
-            <%= link_to user.name, user %>
-        </li>
-    <% end %>
+  <%= render @users %>
+
+  <%# デフォルトで以下のコードを呼び出すパーシャルになっている　%>
+  <%# @users.each do |user| %>
+    <%#= render user %>
+  <%# end %>
 
 </ul>
 
-<%= paginate @users %>
+<%= will_paginate @users %>

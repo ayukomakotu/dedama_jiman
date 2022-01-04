@@ -3,26 +3,23 @@ require 'rails_helper'
 RSpec.describe "UsersProfiles", type: :system do
   
   let!(:michael)               { create(:michael)}
-  let!(:test_classification)   { create(:test_classification) }
-  let!(:test_kind)             { create(:test_kind, classification: test_classification) }
+  let!(:pachinko)              { create(:pachinko) }
+  let!(:test_kind)             { create(:test_kind, classification: pachinko) }
                                  
   let!(:test_machine)          { create(:test_machine, kind: test_kind,
-                                                       classification: test_classification) }
+                                                       classification: pachinko) }
                                  
   let!(:test_post)             { create(:test_post, user: michael,
-                                                    classification: test_classification,
-                                                    kind: test_kind,
                                                     machine: test_machine) }
 
   let!(:oldest)                { create(:oldest, user: michael,
-                                                 classification: test_classification,
-                                                 kind: test_kind,
                                                  machine: test_machine) }
   let!(:acquired)              { create(:acquired) }
 
   context "head" do
-    pending "タイトルは正しいか" do
+    it "タイトルは正しいか" do
       visit user_path(michael)
+      debugger
       expect(page).to have_title michael.name
     end
   end
@@ -54,7 +51,7 @@ RSpec.describe "UsersProfiles", type: :system do
       expect(response.body).to include test_post.machine.name
     end
 
-    pending "post内にaquired 獲得量　単位が表示されている 投稿フォーム作成後再度実装" do
+    pending "post内にaquired 獲得量 単位が表示されている 投稿フォーム作成後再度実装" do
       get user_path(michael)
       expect(response.body).to include test_post.acquireds.first.number.to_s
       expect(response.body).to include test_post.acquireds.first.unit
