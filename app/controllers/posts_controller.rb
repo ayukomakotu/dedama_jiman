@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     def create
+        debugger
         @machine = Machine.find(params[:post][:machine_id])
         @post = current_user.posts.build(post_params)
         @acquired = @post.acquireds.build(acquired_params)
