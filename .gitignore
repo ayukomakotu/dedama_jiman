@@ -41,3 +41,6 @@ yarn-debug.log*
 
 #環境変数　メーリアドレス、アプリパスワードをgithubにあげないようにする
 /.env
+
+# historyを無視
+.history/
